@@ -27,6 +27,8 @@ Así mismo, SQL Server fue construido siendo pensado como un sistema de gestión
 ***Referencias:***
 
 *Santamaría, J., & Hernández, J. (2016). Microsoft SQL Server. SQL SER vs MY SQL, 1-6.*
+
 *(Deyimar, A; (2018, May 8). Diferencia entre MySQL y SQL Server. Tutoriales Hostinger. https://www.hostinger.mx/tutoriales/diferencia-mysql-sql-server*
+
 *Sitio SQLSkills: https://www.sqlskills.com/sql-server-resources/sql-server-demos/*
 
