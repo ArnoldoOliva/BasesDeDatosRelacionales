@@ -5,7 +5,7 @@
 
 #### Tarea 1:
 
-Las siguientes relaciones vienen de la base de datos *2008 Credit Sample Database* del sitio *"SQLSkills"*, en la cual con 9 tablas nos detallan los cargos que se le aplicaron a una empresa por ciertos proveedores, y el estado de los pagos a esos provedores. 
+Los siguientes elementos vienen de la base de datos *2008 Credit Sample Database* del sitio *"SQLSkills"*, en la cual con 9 tablas nos detallan los cargos que se le aplicaron a una empresa por ciertos proveedores a lo largo de junio a octubre de 1999, y el estado de los pagos a esos provedores. 
 
 Las tablas son las siguientes:
 - Category: describe por código, la categoría del producto (en tipos de dato numérico nominal y strings).
@@ -16,7 +16,6 @@ Las tablas son las siguientes:
 - Provider: Nos enseña las empresas proveedoras de la empresa principal -datos nominales, strings y dates-.
 - Region: Las demás tablas cuentan con un region_no y en esta tabla estas las direcciones para cada region_no.
 - Statement: Desplega el "statement amount" para cada miembro. Podría ser la cantidad pagada, se verá más a profundidad posteriormente -en datos nominales, numéricos y dates-.
-
 
 
 Como detalle general de las bases, en varias tablas los datos de date todas las horas se repiten, o que algunas columnas que contienen códigos descriptivos estan vacías. Pero fuera de eso la base de datos podría mostrarnos resultados interesantes del ejercicio de esa empresa.
