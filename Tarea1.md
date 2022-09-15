@@ -21,8 +21,6 @@ Las tablas son las siguientes:
 Como detalle general de las bases, en varias tablas los datos de date todas las horas se repiten, o que algunas columnas que contienen códigos descriptivos estan vacías. Pero fuera de eso la base de datos podría mostrarnos resultados interesantes del ejercicio de esa empresa.
 
 
-
-
 ##### SQL Server:
 
 Creado en la década de 1980 por Microsoft, SQL Server funciona para gestionar bases de datos relacionales, basado en un lenguaje de programación de consulta llamado Transact-SQL, en la el cual este sistema de gestión permite no solo almacenar información en un servidor, sino permite también la interacción cliente a servidor, donde el cliente puede generar consultas para acceder a cierta información. SQL Server solamente pudo funcionar en sistemas operativos de Windows, (Santamaría, J., & Hernández, J.; 2016), hasta hace poco que se añadió un soporte de Linux (Deyimar, A; 2018)
