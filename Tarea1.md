@@ -8,9 +8,9 @@
 Las siguientes entidades vienen de la base de datos *Encuenta Nacional de Ingreso y Gasto de los Hogares, 2020 (ENIGH)* del  *Instituto Nacional de Estadística, Geografía e Informática (INEGI)*, de las cuales escogí 6 de las 17 tablas debido a que resumían de manera mas completa la información de la encuesta, (y a su vez, seleccione los atributos más importantes de cada tabla respectivamente). Toda esta información que se describirá a continuación nos muestra un agregado general acerca de las condiciones de la vivienda, ingreso y gasto de los hogares, así mismo como otros datos referentes al individuo como su preparación educativa, laboral, entre otros.
 
 Las tablas son las siguientes:
-- Vivienda:  Contiene información sobre material de la vivienda, acceso a servicios, tipo de financiamiento de la vivienda, número de personas en ella. Sus datos principalmente son numérico nominales, string y numericos int.
+- Vivienda:  Contiene información sobre material y características físicas de la vivienda, acceso a servicios, número de personas en ella. Sus datos principalmente son numérico nominales, string y numericos int.
 - Hogares: Muestra principalmente el acceso a bienes y servicios por hogar (servicios de telefonía, tarjeta de crédito, accesso a alimentos, entre otros). De igual manera sus datos son numérico nominales, string y numericos int.
-- Población: Describe características de la persona como su etnia, grado de educación, estado civil, acceso a servicios de salud. Contiene datos numérico-nominales, string, ints y dates.
+- Población: Describe características de la persona como su grado de educación, estado civil, acceso a servicios de salud. Contiene datos numérico-nominales, string, ints y dates.
 - Trabajos: Contiene características de la ocupación de la persona, tipo de empresa en la que trabaja, entre otros. De igual manera sus datos son numérico nominales, string y numericos int.
 - Ingresos: Contiene el monto de ingreso generado trimestralmente en el periodo de la encuestra. Tipos de datos string, nominales int y numéricos float.
 - Gastospersona: Detalla diversos tipos y montos de gastos de la persona, así como un ajustado trimestral. Tipos de datos string, nominales int, numéricos float y dates.
