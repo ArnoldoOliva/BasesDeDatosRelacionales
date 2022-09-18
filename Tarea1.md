@@ -5,20 +5,17 @@
 
 #### Tarea 1:
 
-Los siguientes elementos vienen de la base de datos *2008 Credit Sample Database* del sitio *"SQLSkills"*, en la cual con 9 tablas nos detallan los cargos que se le aplicaron a una empresa por ciertos proveedores a lo largo de junio a octubre de 1999, y el estado de los pagos a esos provedores. 
+Las siguientes entidades vienen de la base de datos *Encuenta Nacional de Ingreso y Gasto de los Hogares, 2020 (ENIGH)* del  *Instituto Nacional de Estadística, Geografía e Informática (INEGI)*, de las cuales escogí 6 de las 17 tablas debido a que resumían de manera mas completa la información de la encuesta, (y a su vez, seleccione los atributos más importantes de cada tabla respectivamente). Toda esta información que se describirá a continuación nos muestra un agregado general acerca de las condiciones de la vivienda, ingreso y gasto de los hogares, así mismo como otros datos referentes al individuo como su preparación educativa, laboral, entre otros.
 
 Las tablas son las siguientes:
-- Category: describe por código, la categoría del producto (en tipos de dato numérico nominal y strings).
-- Charge: tabla principal, contiene a través del tiempo los cargos que le aplicaron a la empresa, (contiene datos nominales, numéricos y dates).
-- Corporation: tabla listando ciertas corporaciones, la cuál nos describe la corporación de los sujetos de la tabla member, (contiene datos nominales, strings y dates).
-- Member 1 & 2: Al parecer son la misma tabla en 2 secciones, nos describen los sujetos que interactuaron con la empresa en la tabla Charge, las cuales se muestran en variables de date, numeros nominales, strings y numéricos.
-- Payment: Muestra los pagos que hizo la empresa a cada sujeto de Member (datos nominales, numéricos y dates).
-- Provider: Nos enseña las empresas proveedoras de la empresa principal -datos nominales, strings y dates-.
-- Region: Las demás tablas cuentan con un region_no y en esta tabla estas las direcciones para cada region_no.
-- Statement: Desplega el "statement amount" para cada miembro. Podría ser la cantidad pagada, se verá más a profundidad posteriormente -en datos nominales, numéricos y dates-.
+- Vivienda:  Contiene información sobre material de la vivienda, acceso a servicios, tipo de financiamiento de la vivienda, número de personas en ella. Sus datos principalmente son numérico nominales, string y numericos int.
+- Hogares: Muestra principalmente el acceso a bienes y servicios por hogar (servicios de telefonía, tarjeta de crédito, accesso a alimentos, entre otros). De igual manera sus datos son numérico nominales, string y numericos int.
+- Población: Describe características de la persona como su etnia, grado de educación, estado civil, acceso a servicios de salud. Contiene datos numérico-nominales, string, ints y dates.
+- Trabajos: Contiene características de la ocupación de la persona, tipo de empresa en la que trabaja, entre otros. De igual manera sus datos son numérico nominales, string y numericos int.
+- Ingresos: Contiene el monto de ingreso generado trimestralmente en el periodo de la encuestra. Tipos de datos string, nominales int y numéricos float.
+- Gastospersona: Detalla diversos tipos y montos de gastos de la persona, así como un ajustado trimestral. Tipos de datos string, nominales int, numéricos float y dates.
 
 
-Como detalle general de las bases, en varias tablas los datos de date todas las horas se repiten, o que algunas columnas que contienen códigos descriptivos estan vacías. Pero fuera de eso la base de datos podría mostrarnos resultados interesantes del ejercicio de esa empresa.
 
 
 ##### SQL Server:
@@ -38,5 +35,7 @@ Así mismo, SQL Server fue construido siendo pensado como un sistema de gestión
 
 *(Deyimar, A; (2018, May 8). Diferencia entre MySQL y SQL Server. Tutoriales Hostinger. https://www.hostinger.mx/tutoriales/diferencia-mysql-sql-server*
 
-*Sitio SQLSkills: https://www.sqlskills.com/sql-server-resources/sql-server-demos/*
+*ENIGH 2020: https://www.inegi.org.mx/programas/enigh/nc/2020/#Documentacion*
+
+
 
