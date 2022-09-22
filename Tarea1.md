@@ -16,7 +16,7 @@ Las tablas son las siguientes:
 - Gastospersona: Detalla diversos tipos y montos de gastos de la persona, así como un ajustado trimestral. Tipos de datos varchar, nominales int, numéricos float y dates.
 
 
-Abajo se encuentra el modelo entidad relación de dicha base de datos:
+Abajo se encuentra el modelo entidad relación de la base de datos:
 
 <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/446e0888-f731-4e3a-98c1-cbc810c81cd4" id=".kqTo8r3gRbg"></iframe></div>
 
