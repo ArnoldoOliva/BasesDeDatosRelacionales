@@ -21,8 +21,5 @@ Siguiendo con la base de datos de la ENIGH 2020, se presenta a continuación su 
 
 
 
-
-
-
-
-Este modelo relacional se ve en forma de diagrama en el archivo *"Diagrama relacion"*
+Este modelo relación se ve en forma de diagrama en el sig link:
+mermaid.ink/img/pako:eNqtVcGO2yAQ_RWLc1h5I22S9bUrbXuoVKmrHqpI0QQmDisDLuBot9n8ewfbibGVHCqtLwmPB7w3MwxHJqxEVjB0TwpKBzpbmyz7pQ4KjQSffXxwfrLZV1uCQ58V2Zp9sSbQLJo1a8nnuZ76A523Bq5zL5M9
