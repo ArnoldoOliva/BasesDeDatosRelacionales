@@ -25,8 +25,8 @@ Este modelo relación se ve en forma de diagrama en el sig link:
 
 ```mermaid
 erDiagram 
-  Viviendas ||--}o Hogares : "Contienen" 
-  Hogares ||--}o Personas : "Contienen" 
+  Viviendas ||--}o Hogares : "" 
+  Hogares ||--}o Personas : "" 
   Personas ||--}o Trabajos : "Tienen"
   Personas ||--}o Ingresos : "Generan"
   Personas ||--}o Gastospersona : "Tienen"
