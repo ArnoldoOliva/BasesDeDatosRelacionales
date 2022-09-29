@@ -22,7 +22,94 @@ Siguiendo con la base de datos de la ENIGH 2020, se presenta a continuación su 
 
 
 Este modelo relación se ve en forma de diagrama en el sig link:
-mermaid.ink/img/pako:eNqtVcGO2yAQ_RWLc1h5I22S9bUrbXuoVKmrHqpI0QQmDisDLuBot9n8ewfbibGVHCqtLwmPB7w3MwxHJqxEVjB0TwpKBzpbmyz7pQ4KjQSffXxwfrLZV1uCQ58V2Zp9sSbQLJo1a8nnuZ76A523Bq5z
+
+```mermaid
+erDiagram 
+  Viviendas ||--}o Hogares : "Contienen" 
+  Hogares ||--}o Personas : "Contienen" 
+  Personas ||--}o Trabajos : "Tienen"
+  Personas ||--}o Ingresos : "Generan"
+  Personas ||--}o Gastospersona : "Tienen"
+
+  Viviendas { 
+    varchar id-viv 
+    char tipo-viv 
+    char mat-pisos 
+    int num-cuarto 
+    int disp-agua 
+    int disp-elect 
+    int tenencia 
+    int renta 
+    int tot-resid 
+    int tamloc
+    int factor
+  } 
+  Hogares { 
+    varchar id-viv-hog 
+    int acc-alim2
+    int celular
+    int conex-inte
+    int num-auto
+    int num-compu
+    int tarjeta
+    int negcua
+    int est-alim
+    int est-trans
+    varchar id_viv
+  } 
+  Personas { 
+    varchar id-viv-hog-per 
+    int sexo 
+    int edad
+    int padre-hog
+    int nivelaprob
+    int edo-conyug
+    int segsoc
+    int hor-1
+    int aten-sal
+    date prob-mes
+    varchar id_viv
+    varchar id_viv_hog    
+  } 
+  Trabajos { 
+    int id 
+    int subor
+    int indep
+    int personal
+    int htrab
+    int clas_emp
+    int tam_emp
+    int tiene_suel
+    int tipoact
+    varchar id_viv
+    varchar id_viv_hog
+    varchar id_viv_hog_per
+  } 
+
+  Ingresos { 
+    int id 
+    varchar clave
+    decimal ing-tri
+    varchar id_viv
+    varchar id_viv_hog
+    varchar id_viv_hog_per 
+  }
+
+   Gastospersona {
+    int id
+    varchar clave
+    date mes-dia
+    int frec-requirement
+    int formapago
+    decimal cantidad
+    decimal costo
+    decimal gasto-tri
+    decimal gasto-nm-tri
+    varchar id_viv
+    varchar id_viv_hog
+    varchar id_viv_hog_per
+   }
+```
 
 
 ### Operaciones de álgebra relacional
