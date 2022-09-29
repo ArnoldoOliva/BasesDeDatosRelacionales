@@ -41,14 +41,14 @@ Con este ejercicio se está seleccionando todas las viviendas que no tienen alg�
 
 
 **2)** 
-π id, personal, htrab, clas-emp, tam-emp, tipo-act, id_viv_hog_per   [ σ personal = 2 U σ tamp-emp >=7 (Trabajos) ]
+π id, personal, htrab, clas-emp, tam-emp, tipo-act, id_viv_hog_per   [ σ personal = 2 n σ tamp-emp >=7 (Trabajos) ]
 
-π id, personal, htrab, clas-emp, tam-emp, tipo-act, id_viv_hog_per (Trabajos) [ personal=1 U tamp-emp>=7]
+π id, personal, htrab, clas-emp, tam-emp, tipo-act, id_viv_hog_per (Trabajos) [ personal=1 n tamp-emp>=7]
 
 Lo que se esta haciendo en esta selección es trabajar con los registros donde la persona sea un empresario y tenga personal a su mando, y donde el tamaño de la empresa sea mayor o igual a 31 personas (mediana empresa), para analizar en la proyección mostrada las proporciones de horas trabajadas, clase de la empresa, tipo de actividad y tamaño de la empresa.
 
 **3)**
-σ negcua=1 (Hogares) U σ acc-alim2=1 (Hogares)
+σ negcua=1 (Hogares) n σ acc-alim2=1 (Hogares)
 
 Hogares[ negcua=1 U acc-alim2=1 ]
 
