@@ -27,9 +27,9 @@ Este modelo relación se ve en forma de diagrama en el sig link:
 erDiagram 
   Viviendas ||--}o Hogares : "" 
   Hogares ||--}o Personas : "" 
-  Personas ||--}o Trabajos : "Tienen"
-  Personas ||--}o Ingresos : "Generan"
-  Personas ||--}o Gastospersona : "Tienen"
+  Personas ||--}o Trabajos : ""
+  Personas ||--}o Ingresos : ""
+  Personas ||--}o Gastospersona : ""
 
   Viviendas { 
     varchar id-viv 
