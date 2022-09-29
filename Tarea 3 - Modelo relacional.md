@@ -35,7 +35,7 @@ Estas relaciones permiten combinaciones entre sí mismas para analizar los datos
 **1)**
 π id-viv, tipo-viv, mat-pisos, num-cuarto, disp-agua, renta, tot-resid, tam-loc [σ mat-pisos <> 3 (Viviendas)]
 
-   Viviendas[ mat-pisos<>3 ]
+ π id-viv, tipo-viv, mat-pisos, num-cuarto, disp-agua, renta, tot-resid, tam-loc  (Viviendas) [ mat-pisos<>3 ]
 
 Con este ejercicio se está seleccionando todas las viviendas que no tienen algún acabado especial en el suelo (no cuentan con mosaicos, madera, etc.) Sería interesante ver las proporciones de las otras variables (tamaño localidad, número de cuartos, acceso al agua, renta mensual), cuando el suelo es tierra o cemento.
 
