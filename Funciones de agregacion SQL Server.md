@@ -8,13 +8,13 @@
 En este ejercicio se usará SQL Server para trabajar sobre ciertas relaciones de la base de datos de la ENIGH 2020 (el archivo llamado "enighdb" que esta en el repositorio se puede descargar), con el fin de obtener algunas funciones de agregación:
 
 ##### 1) Conteos de frecuencias/medias:
- $
+ <code>
  --conteo de frecuencias de tipo_vivienda
 SELECT COUNT(*) FROM vivienda GROUP BY tipo_vivienda
 
 --media por cada tamaño de localidad
 SELECT AVG(renta) FROM vivienda GROUP BY tam_loc
- $
+ </code>
 
 En este ejercicio, la cláusula *GROUP BY* es primordial debido a que para obtener frecuencias se tienen que agrupar los datos por cierta categoría, y esta cláusula lo permite.
 
