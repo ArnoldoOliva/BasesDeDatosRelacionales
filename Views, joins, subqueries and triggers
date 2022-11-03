@@ -1,4 +1,3 @@
-<code>
 
 --VIEW/INNER JOIN
 --HORAS TRABAJADASDE LAS PERSONAS * UN TIPO VIVIENDA 2 (departamento en edificio) 
@@ -84,4 +83,3 @@ if (select independiente from inserted)=1 --esto sirve para checar si ha sido in
 BEGIN TRANSACTION 
 INSERT INTO personas_wtrab_independiente_20_40 (independiente) VALUES (1)
 
-</code>
