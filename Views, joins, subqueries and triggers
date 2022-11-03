@@ -1,0 +1,87 @@
+<code>
+
+--VIEW/INNER JOIN
+--HORAS TRABAJADASDE LAS PERSONAS * UN TIPO VIVIENDA 2 (departamento en edificio) 
+CREATE VIEW trabajohrs_vs_tipoviv 
+as
+SELECT 
+	viv.viv_id, viv.tipo_vivienda,
+	trab.horas_trabajadas
+FROM vivienda viv
+INNER JOIN trabajo trab
+	ON viv.viv_id=trab.viv_id
+WHERE viv.tipo_vivienda=2;
+    
+SELECT * FROM trabajohrs_vs_tipoviv
+
+--DROP VIEW IF EXISTS personas_wtrab_independiente_20_40
+
+
+--VIEW/LEFT JOIN
+--personas de 20 a 40 alos con trabajo independiente (conteo)
+CREATE VIEW personas_wtrab_independiente_20_40
+as
+SELECT 
+	per.sexo, per.edad,
+	trab.independiente
+FROM persona per
+LEFT JOIN trabajo trab
+	ON per.id_viv_hog_per=trab.id_viv_hog_per
+WHERE per.edad>=20 AND per.edad<=40;
+
+SELECT SUM(DATALENGTH(independiente))
+FROM personas_wtrab_independiente_20_40 
+WHERE independiente=1 --14054 personas de 20 a 40 años tienen trabajo por su cuenta
+
+--VIEW/RIGHT JOIN
+--obtener vivienda.renta,hogar.estalimentos y est.trans e ingreso.ingreso
+CREATE VIEW comp_ing_gastos
+as
+SELECT 
+	viv.renta, hog.est_alimentos, hog.est_trans,
+	ing.ing_trim,ing.id_viv_hog_per
+FROM vivienda viv
+RIGHT JOIN hogar hog
+	ON viv.viv_id=hog.viv_id
+RIGHT JOIN  ingreso ing
+	ON hog.viv_id=ing.viv_id
+
+SELECT * FROM comp_ing_gastos
+
+--VIEW: LEFT JOIN/SUBCONSULTA
+--hog.num_auto>0
+--per.nivelaprob (select)
+--clave LIKE E, invirtieron en educacion
+
+
+CREATE VIEW nivelaprob_vs_vars
+as
+SELECT 
+	per.id_viv_hog_per, viv.tenencia, viv.tipo_vivienda, viv.renta, hog.num_auto,hog.negocio_hogar,
+	per.sexo, per.edad,per.nivelaprob
+FROM vivienda viv
+INNER JOIN hogar hog
+	ON viv.viv_id=hog.viv_id
+LEFT JOIN  persona per
+	ON hog.hog_id=per.hog_id
+WHERE hog.hog_id in
+	(SELECT hog_id
+	FROM gastospersona
+	WHERE clave LIKE '%E%')  
+  
+SELECT * FROM personas_wtrab_independiente_20_40
+
+--Triggers:
+CREATE TRIGGER new_person on personas_wtrab_independiente_20_40 
+INSTEAD OF INSERT 
+AS
+
+if (select independiente from inserted)=1 --esto sirve para checar si ha sido insertado
+		insert into personas_wtrab_independiente_20_40 (sexo, edad)
+			select  FLOOR(RAND()*(3-1))+1,FLOOR(RAND()*(40-20+1))+10
+
+
+BEGIN TRANSACTION 
+INSERT INTO personas_wtrab_independiente_20_40 (independiente) VALUES (1)
+
+</code>
