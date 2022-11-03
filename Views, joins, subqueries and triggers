@@ -1,19 +1,21 @@
 
 --VIEW/INNER JOIN
---HORAS TRABAJADASDE LAS PERSONAS * UN TIPO VIVIENDA 2 (departamento en edificio) 
+--HORAS TRABAJADASDE LAS PERSONAS * (departamento en edificio) 
 CREATE VIEW trabajohrs_vs_tipoviv 
 as
-SELECT 
-	viv.viv_id, viv.tipo_vivienda,
-	trab.horas_trabajadas
+SELECT
+	viv.viv_id,
+	SUM(trab.horas_trabajadas) AS 'horas_trabajadas_vivienda'
 FROM vivienda viv
 INNER JOIN trabajo trab
 	ON viv.viv_id=trab.viv_id
-WHERE viv.tipo_vivienda=2;
+	GROUP BY viv.viv_id 
+	
+ --departamento en edificio
     
 SELECT * FROM trabajohrs_vs_tipoviv
 
---DROP VIEW IF EXISTS personas_wtrab_independiente_20_40
+--DROP VIEW IF EXISTS trabajohrs_vs_tipoviv
 
 
 --VIEW/LEFT JOIN
@@ -28,9 +30,12 @@ LEFT JOIN trabajo trab
 	ON per.id_viv_hog_per=trab.id_viv_hog_per
 WHERE per.edad>=20 AND per.edad<=40;
 
+SELECT * FROM personas_wtrab_independiente_20_40
+
 SELECT SUM(DATALENGTH(independiente))
 FROM personas_wtrab_independiente_20_40 
 WHERE independiente=1 --14054 personas de 20 a 40 años tienen trabajo por su cuenta
+
 
 --VIEW/RIGHT JOIN
 --obtener vivienda.renta,hogar.estalimentos y est.trans e ingreso.ingreso
@@ -68,7 +73,7 @@ WHERE hog.hog_id in
 	FROM gastospersona
 	WHERE clave LIKE '%E%')  
   
-SELECT * FROM personas_wtrab_independiente_20_40
+SELECT * FROM nivelaprob_vs_vars
 
 --Triggers:
 CREATE TRIGGER new_person on personas_wtrab_independiente_20_40 
@@ -82,4 +87,5 @@ if (select independiente from inserted)=1 --esto sirve para checar si ha sido in
 
 BEGIN TRANSACTION 
 INSERT INTO personas_wtrab_independiente_20_40 (independiente) VALUES (1)
+
 
