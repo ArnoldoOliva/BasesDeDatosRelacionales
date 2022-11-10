@@ -1,0 +1,69 @@
+drop table if exists starbucks
+
+--CREATION OF TABLE
+CREATE TABLE starbucks(
+	calories INT NOT NULL,
+	carbohydrates INT NOT NULL,
+	sugar INT NOT NULL
+)
+
+BULK INSERT starbucks
+FROM 'C:/SQL/BDD/ENIGH_BDR/BDD_true/starbucks_drinkMenu_expanded_v2.csv' --SE TIENE QUE COLOCAR EL PATH DEL SISTEMA DE SQL
+WITH
+(
+    FIRSTROW = 2, -- as 1st one is header
+    FIELDTERMINATOR = ',',  --CSV field delimiter
+    ROWTERMINATOR = '\n',   --Use to shift the control to next row
+    TABLOCK
+)
+
+SELECT * FROM starbucks
+--------------------------CALCULATION OF CORRELATION--------------------
+
+--difference of values and means
+ALTER TABLE starbucks ADD cal_minus_meancal INT 
+ALTER TABLE starbucks ADD sug_minus_meansug INT
+
+DECLARE @meancal int
+DECLARE @meansug int
+
+--mean of vars
+SET @meancal = (SELECT AVG(calories) FROM starbucks)
+SET @meansug = (SELECT AVG(sugar) FROM starbucks)
+SELECT @meancal as meancal
+SELECT @meansug as meansug
+
+
+UPDATE starbucks SET cal_minus_meancal = (calories-@meancal) FROM starbucks
+UPDATE starbucks SET sug_minus_meansug = (sugar-@meansug) FROM starbucks
+
+SELECT * FROM starbucks
+
+
+--select * from starbucks
+
+--calculate SUMMATION OF (x-xmean)*(y-ymean),(x-xmean)^2,(y-ymean)^2
+DECLARE @sum_diff_product_meansvars BIGINT
+DECLARE @sum_cal_minus_meancal_sqrd BIGINT
+DECLARE @sum_sug_minus_meansug_sqrd BIGINT
+
+SET @sum_diff_product_meansvars = (SELECT (SUM(cal_minus_meancal*sug_minus_meansug)) FROM starbucks)
+SET @sum_cal_minus_meancal_sqrd = (SELECT (SUM(POWER(cal_minus_meancal,2))) FROM starbucks)
+SET @sum_sug_minus_meansug_sqrd = (SELECT (SUM(POWER(sug_minus_meansug,2))) FROM starbucks)
+
+SELECT @sum_diff_product_meansvars,@sum_cal_minus_meancal_sqrd,@sum_sug_minus_meansug_sqrd
+
+--------CALCULATE PEARSON CORRELATION COEFFICIENT
+--formula:  sum((x-xmean)*(y-ymean))/(sqrt((x-xmean)^2*(y-ymean)^2))
+--rewritten: @sum_diff_product_meansvars/sqrt(@sum_cal_minus_meancal_sqrd*@sum_sug_minus_meansug_sqrd)
+
+--SELECT * FROM starbucks
+
+DECLARE @correlation_coefficient FLOAT
+SET @correlation_coefficient = ROUND((@sum_diff_product_meansvars/sqrt(@sum_cal_minus_meancal_sqrd*@sum_sug_minus_meansug_sqrd)),4)
+SELECT @correlation_coefficient AS 'Pearson correlation coef calories and sugar'
+
+--0.909 correlation coefficient between Calories in grams and Sugar in grams: strong positive relationship among variables
+
+
+
